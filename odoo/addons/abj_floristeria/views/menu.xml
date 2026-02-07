@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <menuitem
+            id="abj_floristeria.root"
+            name="Floristeria"
+            sequence="1"
+        />
+
+        <record id="abj_floristeria.flor_action" model="ir.actions.act_window">
+            <field name="name">Flor</field>
+            <field name="res_model">abj_floristeria.flor</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <menuitem id="abj_floristeria.flor_menu" name="Flor" parent="abj_floristeria.root" action="abj_floristeria.flor_action" sequence="10" />
+
+        <record id="abj_floristeria.ramo_action" model="ir.actions.act_window">
+            <field name="name">Ramo</field>
+            <field name="res_model">abj_floristeria.ramo</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <menuitem id="abj_floristeria.ramo_menu" name="Ramo" parent="abj_floristeria.root" action="abj_floristeria.ramo_action" sequence="20" />
+    </data>
+</odoo>

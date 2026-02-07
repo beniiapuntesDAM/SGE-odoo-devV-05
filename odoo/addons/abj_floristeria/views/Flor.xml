@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_flor_form" model="ir.ui.view">
+    <field name="name">abj_floristeria.flor.form</field>
+    <field name="model">abj_floristeria.flor</field>
+    <field name="arch" type="xml">
+        <form string="Flor">
+            <sheet>
+                <group>
+                    <field name="tipo"/>
+                    <field name="color"/>
+                    <field name="precio"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+<record id="view_flor_tree" model="ir.ui.view">
+    <field name="name">abj_floristeria.flor.tree</field>
+    <field name="model">abj_floristeria.flor</field>
+    <field name="arch" type="xml">
+        <tree string="Flores">
+            <field name="tipo"/>
+            <field name="color"/>
+            <field name="precio"/>
+        </tree>
+    </field>
+</record>
+
+
+<record id="view_flor_kanban" model="ir.ui.view">
+    <field name="name">abj_floristeria.flor.kanban</field>
+    <field name="model">abj_floristeria.flor</field>
+    <field name="arch" type="xml">
+        <kanban class="o_kanban_small_column" default_group_by="tipo">
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                        <div class="o_kanban_record_body">
+
+                            <strong>
+                                <field name="tipo"/>
+                            </strong>
+
+                            <div>
+                                Color: <field name="color"/>
+                            </div>
+
+                            <div>
+                                Precio: <field name="precio"/> €
+                            </div>
+
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+
+</odoo>
