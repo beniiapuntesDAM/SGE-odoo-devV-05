@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class abj_floristeria_flor(models.Model):
     _name = 'abj_floristeria.flor'
     _description = 'Flor'
-    _rec_name = 'nombre'   # ← Odoo usará este campo como nombre visible
+    _rec_name = 'nombre'
 
     tipo = fields.Selection([
         ('rosa', 'Rosa'),
@@ -14,6 +14,11 @@ class abj_floristeria_flor(models.Model):
 
     color = fields.Char(string='Color')
     precio = fields.Float(string='Precio', required=True)
+
+    imagen_tipo = fields.Char(
+        compute="_compute_imagen_tipo",
+        store=False
+    )
 
     nombre = fields.Char(
         string="Nombre",
@@ -26,3 +31,11 @@ class abj_floristeria_flor(models.Model):
         for f in self:
             tipo = dict(self._fields['tipo'].selection).get(f.tipo, '')
             f.nombre = f"{tipo} {f.color or ''}".strip()
+
+    @api.depends('tipo')
+    def _compute_imagen_tipo(self):
+        for f in self:
+            if f.tipo:
+                f.imagen_tipo = f"/abj_floristeria/static/src/img/{f.tipo}.png"
+            else:
+                f.imagen_tipo = "/abj_floristeria/static/src/img/otro.png"

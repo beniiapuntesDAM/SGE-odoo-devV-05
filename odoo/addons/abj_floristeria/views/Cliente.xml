@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cliente_tree" model="ir.ui.view">
+        <field name="name">abj_floristeria.cliente.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Clientes Floristería">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="es_cliente_floristeria"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_cliente_form" model="ir.ui.view">
+        <field name="name">abj_floristeria.cliente.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Cliente Floristería">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="es_cliente_floristeria"/>
+                    </group>
+
+                    <group>
+                        <field name="notas_cliente"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

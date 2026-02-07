@@ -41,31 +41,31 @@
         </field>
     </record>
 
-    <record id="view_ramo_kanban" model="ir.ui.view">
-        <field name="name">abj_floristeria.ramo.kanban</field>
-        <field name="model">abj_floristeria.ramo</field>
-        <field name="arch" type="xml">
-            <kanban>
-                <field name="nombre"/>
-                <field name="precio_total"/>
-                <field name="flores_nombres"/>
-                <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click o_kanban_record">
-                            <strong><field name="nombre"/></strong>
-                            <div>
-                                Precio total:
-                                <field name="precio_total"/> €
-                            </div>
-                            <div>
-                                Flores:
-                                <t t-esc="record.flores_nombres.value"/>
-                            </div>
+<record id="view_ramo_kanban" model="ir.ui.view">
+    <field name="name">abj_floristeria.ramo.kanban</field>
+    <field name="model">abj_floristeria.ramo</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="nombre"/>
+            <field name="precio_total"/>
+            <field name="flores_nombres"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click o_kanban_record"
+                        style="background:white; padding:12px; border-radius:8px;
+                                box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+
+                        <strong style="font-size:16px; color:#333; display:block; margin-bottom:8px;">
+                            <field name="nombre"/>
+                        </strong>
+                        <div style="background-color:#dde7ff; padding:6px; margin-top:6px; border-radius:4px; font-size:13px;"> Flores:
+                            <t t-esc="record.flores_nombres.value"/>
                         </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
 
 </odoo>

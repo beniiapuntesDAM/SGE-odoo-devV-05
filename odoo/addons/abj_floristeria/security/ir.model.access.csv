@@ -1,7 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_user_flor,access_user_flor,model_abj_floristeria_flor,base.group_user,1,1,0,0
+access_user_flor,access_user_flor,model_abj_floristeria_flor,base.group_user,1,1,1,0
 access_admin_flor,access_admin_flor,model_abj_floristeria_flor,base.group_system,1,1,1,1
-access_user_ramo,access_user_ramo,model_abj_floristeria_ramo,base.group_user,1,1,0,0
+access_user_ramo,access_user_ramo,model_abj_floristeria_ramo,base.group_user,1,1,1,0
 access_admin_ramo,access_admin_ramo,model_abj_floristeria_ramo,base.group_system,1,1,1,1
+access_user_pedido,access_user_pedido,model_abj_floristeria_pedido,base.group_user,1,1,1,0
+access_admin_pedido,access_admin_pedido,model_abj_floristeria_pedido,base.group_system,1,1,1,1
 
 

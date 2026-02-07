@@ -1,30 +1,28 @@
 <odoo>
-    <data>
-<!--
-          <record id="object0" model="abj_floristeria.abj_floristeria">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
 
-          <record id="object1" model="abj_floristeria.abj_floristeria">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+    <!-- FLORES -->
+    <record id="demo_flor_rosa" model="abj_floristeria.flor">
+        <field name="tipo">rosa</field>
+        <field name="color">Rojo</field>
+        <field name="precio">5.00</field>
+    </record>
 
-          <record id="object2" model="abj_floristeria.abj_floristeria">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
+    <record id="demo_flor_tulipan" model="abj_floristeria.flor">
+        <field name="tipo">tulipan</field>
+        <field name="color">Amarillo</field>
+        <field name="precio">3.50</field>
+    </record>
 
-          <record id="object3" model="abj_floristeria.abj_floristeria">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
+    <!-- RAMO (usa las flores anteriores) -->
+    <record id="demo_ramo_primavera" model="abj_floristeria.ramo">
+        <field name="nombre">Ramo Primavera</field>
+        <field name="flor_ids" eval="[(6, 0, [ref('demo_flor_rosa'), ref('demo_flor_tulipan')])]"/>
+    </record>
 
-          <record id="object4" model="abj_floristeria.abj_floristeria">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
-    </data>
+    <!-- PEDIDO (cliente = Administrador) -->
+    <record id="demo_pedido_1" model="abj_floristeria.pedido">
+        <field name="cliente_id" ref="base.user_admin"/>
+        <field name="ramo_id" ref="demo_ramo_primavera"/>
+    </record>
+
 </odoo>

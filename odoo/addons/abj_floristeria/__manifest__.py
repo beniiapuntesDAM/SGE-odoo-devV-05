@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     'name': "abj_floristeria",
-
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'icon': 'abj_floristeria/static/description/logo.png',
+    'summary': "Floristeria familiar, si necesitas un ramo de flores con urgencia, llamanos.",
 
     'description': """
-Long description of module's purpose
+    Modulo para pequeñas empresas de floristeria, con el que podrás gestionar tus flores, ramos, clientes y pedidos de forma sencilla y eficiente.
     """,
 
-    'author': "My Company",
+    'author': "AlvaroBenito S.A.",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -18,16 +18,19 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'contacts'],
+    
+
+
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/Flor.xml',
         'views/Ramo.xml',
+        'views/Cliente.xml',
+        'views/Pedido.xml',
         'views/menu.xml',
-        
-        
     ],
     # only loaded in demonstration mode
     'demo': [

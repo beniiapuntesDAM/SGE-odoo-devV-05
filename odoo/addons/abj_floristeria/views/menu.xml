@@ -20,5 +20,21 @@
             <field name="view_mode">tree,form,kanban</field>
         </record>
         <menuitem id="abj_floristeria.ramo_menu" name="Ramo" parent="abj_floristeria.root" action="abj_floristeria.ramo_action" sequence="20" />
+        
+        <record id="abj_floristeria.cliente_action" model="ir.actions.act_window">
+            <field name="name">Cliente</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[('es_cliente_floristeria','=',True)]</field>
+        </record>
+        <menuitem id="abj_floristeria.cliente_menu" name="Clientes" parent="abj_floristeria.root" action="abj_floristeria.cliente_action" sequence="30"/>
+
+
+        <record id="abj_floristeria.pedido_action" model="ir.actions.act_window">
+            <field name="name">Pedido</field>
+            <field name="res_model">abj_floristeria.pedido</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="abj_floristeria.pedido_menu" name="Pedidos" parent="abj_floristeria.root" action="abj_floristeria.pedido_action" sequence="40"/>
     </data>
 </odoo>
