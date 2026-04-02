@@ -6,6 +6,7 @@ class Ramo(models.Model):
     _rec_name = 'nombre_completo'
 
     nombre = fields.Char(string='Nombre del ramo', required=True)
+    imagen_ramo = fields.Image(max_width=50, max_height=50, string='Fotografia opcional para añadir al ramo')
 
     nombre_completo = fields.Char(
         string="Nombre completo",
@@ -20,6 +21,7 @@ class Ramo(models.Model):
         column2='flor_id',
         string='Flores del ramo'
     )
+
 
     flores_nombres = fields.Char(
         string="Flores",

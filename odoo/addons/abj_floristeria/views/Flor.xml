@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <record id="view_flor_form" model="ir.ui.view">
+<record id="view_flor_form" model="ir.ui.view">
     <field name="name">abj_floristeria.flor.form</field>
     <field name="model">abj_floristeria.flor</field>
     <field name="arch" type="xml">
@@ -12,10 +12,24 @@
                     <field name="color"/>
                     <field name="precio"/>
                 </group>
+
+                <notebook>
+                    <page string="Ramos que incluyen esta flor">
+                        <field name="ramo_ids" readonly="1">
+                            <tree>
+                                <field name="nombre"/>
+                                <field name="precio_total"/>
+                                <field name="flores_nombres"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+
             </sheet>
         </form>
     </field>
 </record>
+
 
 <record id="view_flor_tree" model="ir.ui.view">
     <field name="name">abj_floristeria.flor.tree</field>

@@ -27,6 +27,7 @@
         'views/Ramo.xml',
         'views/Cliente.xml',
         'views/Pedido.xml',
+        'views/Reparto.xml',
         'views/menu.xml',
     ],
 

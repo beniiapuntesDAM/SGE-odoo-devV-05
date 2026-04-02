@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <record id="view_ramo_tree" model="ir.ui.view">
         <field name="name">abj_floristeria.ramo.tree</field>
         <field name="model">abj_floristeria.ramo</field>
         <field name="arch" type="xml">
             <tree string="Ramos">
+                <field name="imagen_ramo" widget="image"/>
                 <field name="nombre"/>
                 <field name="flores_nombres"/>
                 <field name="precio_total"/>
@@ -13,33 +13,46 @@
         </field>
     </record>
 
-    <record id="view_ramo_form" model="ir.ui.view">
-        <field name="name">abj_floristeria.ramo.form</field>
-        <field name="model">abj_floristeria.ramo</field>
-        <field name="arch" type="xml">
-            <form string="Ramo">
-                <sheet>
-                    <group>
-                        <field name="nombre"/>
-                        <field name="precio_total" readonly="1"/>
-                    </group>
-                    <notebook>
-                        <page string="Flores del ramo">
-                            <field name="flor_ids">
-                                <tree>
-                                    <field name="nombre"/>
-                                    <field name="tipo"/>
-                                    <field name="color"/>
-                                    <field name="precio"/>
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
+<record id="view_ramo_form" model="ir.ui.view">
+    <field name="name">abj_floristeria.ramo.form</field>
+    <field name="model">abj_floristeria.ramo</field>
+    <field name="arch" type="xml">
+        <form string="Ramo">
+            <sheet>
+                <group>
+                    <field name="nombre"/>
+                    <field name="precio_total" readonly="1"/>
+                    <field name="imagen_ramo" widget="image"/>
+                </group>
 
-                </sheet>
-            </form>
-        </field>
-    </record>
+                <notebook>
+                    <page string="Flores del ramo">
+                        <field name="flor_ids">
+                            <tree>
+                                <field name="nombre"/>
+                                <field name="tipo"/>
+                                <field name="color"/>
+                                <field name="precio"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                    <page string="Pedidos del ramo">
+                        <field name="pedido_id">
+                            <tree>
+                                <field name="fecha"/>
+                                <field name="cliente_id"/>
+                                <field name="reparto_id"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                </notebook>
+
+            </sheet>
+        </form>
+    </field>
+</record>
 
 <record id="view_ramo_kanban" model="ir.ui.view">
     <field name="name">abj_floristeria.ramo.kanban</field>
@@ -49,6 +62,7 @@
             <field name="nombre"/>
             <field name="precio_total"/>
             <field name="flores_nombres"/>
+            <field name="imagen_ramo" widget="image"/>
             <templates>
                 <t t-name="kanban-box">
                     <div class="oe_kanban_global_click o_kanban_record"

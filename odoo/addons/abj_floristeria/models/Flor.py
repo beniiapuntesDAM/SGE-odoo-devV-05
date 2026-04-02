@@ -14,6 +14,15 @@ class abj_floristeria_flor(models.Model):
 
     color = fields.Char(string='Color')
     precio = fields.Float(string='Precio', required=True)
+    ramo_ids = fields.Many2many(
+    comodel_name='abj_floristeria.ramo',
+    relation='ramo_flor_rel_new',
+    column1='flor_id',
+    column2='ramo_id',
+    string='Ramos'
+)
+
+
 
     imagen_tipo = fields.Char(
         compute="_compute_imagen_tipo",

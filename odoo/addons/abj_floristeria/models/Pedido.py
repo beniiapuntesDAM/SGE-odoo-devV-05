@@ -5,9 +5,9 @@ class Pedido(models.Model):
     _description = 'Pedido'
 
     fecha = fields.Date(
-            string='Fecha del pedido',
-            default=fields.Date.today
-        )
+        string='Fecha del pedido',
+        default=fields.Date.today
+    )
 
     cliente_id = fields.Many2one(
         comodel_name='res.partner',
@@ -16,13 +16,19 @@ class Pedido(models.Model):
     )
 
     ramo_id = fields.Many2one(
-    comodel_name='abj_floristeria.ramo',
-    string='Ramo',
-    required=True,
-    domain="['|', ('pedido_id', '=', False), ('pedido_id', '=', id)]"
+        comodel_name='abj_floristeria.ramo',
+        string='Ramo',
+        required=True,
+        domain="['|', ('pedido_id', '=', False), ('pedido_id', '=', id)]"
     )
 
+    reparto_id = fields.Many2one(
+        comodel_name='abj_floristeria.reparto',
+        string='Reparto',
+        ondelete='set null'
+    )
 
     _sql_constraints = [
         ('unique_ramo', 'unique(ramo_id)', 'Este ramo ya está asignado a otro pedido.')
     ]
+

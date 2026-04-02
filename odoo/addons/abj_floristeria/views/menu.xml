@@ -36,5 +36,13 @@
             <field name="view_mode">tree,form</field>
         </record>
         <menuitem id="abj_floristeria.pedido_menu" name="Pedidos" parent="abj_floristeria.root" action="abj_floristeria.pedido_action" sequence="40"/>
+    
+        <record id="action_reparto" model="ir.actions.act_window">
+        <field name="name">Reparto</field>
+        <field name="res_model">abj_floristeria.reparto</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="abj_floristeria.reparto_menu" name="Reparto" parent="abj_floristeria.root" action="action_reparto" sequence="50"/>
+
     </data>
 </odoo>

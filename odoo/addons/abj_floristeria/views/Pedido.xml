@@ -13,18 +13,31 @@
     </record>
 
     <record id="view_pedido_form" model="ir.ui.view">
-        <field name="name">abj_floristeria.pedido.form</field>
-        <field name="model">abj_floristeria.pedido</field>
-        <field name="arch" type="xml">
-            <form string="Pedido">
-                <sheet>
-                    <group>
-                        <field name="cliente_id"/>
-                        <field name="ramo_id"/>
-                        <field name="fecha"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+    <field name="name">abj_floristeria.pedido.form</field>
+    <field name="model">abj_floristeria.pedido</field>
+    <field name="arch" type="xml">
+        <form string="Pedido">
+            <sheet>
+                <group>
+                    <field name="cliente_id"/>
+                    <field name="ramo_id"/>
+                    <field name="fecha"/>
+                </group>
+
+                <notebook>
+                    <page string="Reparto asignado">
+                        <field name="reparto_id">
+                            <tree>
+                                <field name="codigo"/>
+                                <field name="matricula"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+
+            </sheet>
+        </form>
+    </field>
+</record>
+
 </odoo>

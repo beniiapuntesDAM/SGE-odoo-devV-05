@@ -20,6 +20,12 @@
     <record id="demo_pedido_1" model="abj_floristeria.pedido">
         <field name="cliente_id" ref="base.user_admin"/>
         <field name="ramo_id" ref="demo_ramo_primavera"/>
+        <field name="fecha" eval="datetime.now().strftime('%Y-%m-%d')"/>
+        <field name="reparto_id" ref="demo_reparto_1"/>
     </record>
 
+    <record id="demo_reparto_1" model="abj_floristeria.reparto">
+        <field name="matricula">1234XYZ</field>
+        <field name="fecha_reparto" eval="datetime.now().strftime('%Y-%m-%d')"/>
+    </record>
 </odoo>
