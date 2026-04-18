@@ -1,31 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data>
 
-    <record id="demo_flor_rosa" model="abj_floristeria.flor">
-        <field name="tipo">rosa</field>
-        <field name="color">Rojo</field>
-        <field name="precio">5.00</field>
-    </record>
+        <record id="flor_rosa_roja" model="abj_floristeria.flor">
+            <field name="tipo">rosa</field>
+            <field name="color">Roja</field>
+            <field name="precio">2.50</field>
+        </record>
 
-    <record id="demo_flor_tulipan" model="abj_floristeria.flor">
-        <field name="tipo">tulipan</field>
-        <field name="color">Amarillo</field>
-        <field name="precio">3.50</field>
-    </record>
+        <record id="flor_rosa_blanca" model="abj_floristeria.flor">
+            <field name="tipo">rosa</field>
+            <field name="color">Blanca</field>
+            <field name="precio">2.00</field>
+        </record>
 
-    <record id="demo_ramo_primavera" model="abj_floristeria.ramo">
-        <field name="nombre">Ramo Primavera</field>
-        <field name="flor_ids" eval="[(6, 0, [ref('demo_flor_rosa'), ref('demo_flor_tulipan')])]"/>
-    </record>
+        <record id="flor_tulipan_amarillo" model="abj_floristeria.flor">
+            <field name="tipo">tulipan</field>
+            <field name="color">Amarillo</field>
+            <field name="precio">1.75</field>
+        </record>
 
-    <record id="demo_pedido_1" model="abj_floristeria.pedido">
-        <field name="cliente_id" ref="base.user_admin"/>
-        <field name="ramo_id" ref="demo_ramo_primavera"/>
-        <field name="fecha" eval="datetime.now().strftime('%Y-%m-%d')"/>
-        <field name="reparto_id" ref="demo_reparto_1"/>
-    </record>
+        <record id="flor_tulipan_morado" model="abj_floristeria.flor">
+            <field name="tipo">tulipan</field>
+            <field name="color">Morado</field>
+            <field name="precio">1.80</field>
+        </record>
 
-    <record id="demo_reparto_1" model="abj_floristeria.reparto">
-        <field name="matricula">1234XYZ</field>
-        <field name="fecha_reparto" eval="datetime.now().strftime('%Y-%m-%d')"/>
-    </record>
+        <record id="flor_margarita_blanca" model="abj_floristeria.flor">
+            <field name="tipo">margarita</field>
+            <field name="color">Blanca</field>
+            <field name="precio">1.20</field>
+        </record>
+
+        <record id="flor_margarita_rosa" model="abj_floristeria.flor">
+            <field name="tipo">margarita</field>
+            <field name="color">Rosa</field>
+            <field name="precio">1.30</field>
+        </record>
+
+        <record id="flor_otro_lavanda" model="abj_floristeria.flor">
+            <field name="tipo">otro</field>
+            <field name="color">Lavanda</field>
+            <field name="precio">3.00</field>
+        </record>
+
+
+
+        <record id="ramo_romantico" model="abj_floristeria.ramo">
+            <field name="nombre">Ramo Romántico</field>
+            <field name="flor_ids" eval="[(6, 0, [ref('flor_rosa_roja'), ref('flor_rosa_blanca'), ref('flor_margarita_blanca')])]"/>
+        </record>
+
+        <record id="ramo_primaveral" model="abj_floristeria.ramo">
+            <field name="nombre">Ramo Primaveral</field>
+            <field name="flor_ids" eval="[(6, 0, [ref('flor_tulipan_amarillo'), ref('flor_margarita_rosa'), ref('flor_margarita_blanca')])]"/>
+        </record>
+
+        <record id="ramo_elegante" model="abj_floristeria.ramo">
+            <field name="nombre">Ramo Elegante</field>
+            <field name="flor_ids" eval="[(6, 0, [ref('flor_rosa_roja'), ref('flor_tulipan_morado'), ref('flor_otro_lavanda')])]"/>
+        </record>
+
+        <record id="ramo_silvestre" model="abj_floristeria.ramo">
+            <field name="nombre">Ramo Silvestre</field>
+            <field name="flor_ids" eval="[(6, 0, [ref('flor_margarita_blanca'), ref('flor_margarita_rosa'), ref('flor_tulipan_amarillo'), ref('flor_otro_lavanda')])]"/>
+        </record>
+
+
+
+        <record id="cliente_maria_garcia" model="res.partner">
+            <field name="name">María García López</field>
+            <field name="email">maria.garcia@example.com</field>
+            <field name="phone">612 345 678</field>
+            <field name="es_cliente_floristeria">True</field>
+            <field name="notas_cliente">Le gustan las rosas rojas. Prefiere entregas por la mañana.</field>
+        </record>
+
+        <record id="cliente_carlos_ruiz" model="res.partner">
+            <field name="name">Carlos Ruiz Martínez</field>
+            <field name="email">carlos.ruiz@example.com</field>
+            <field name="phone">623 456 789</field>
+            <field name="es_cliente_floristeria">True</field>
+            <field name="notas_cliente">Compra frecuentemente para aniversarios.</field>
+        </record>
+
+        <record id="cliente_ana_lopez" model="res.partner">
+            <field name="name">Ana López Fernández</field>
+            <field name="email">ana.lopez@example.com</field>
+            <field name="phone">634 567 890</field>
+            <field name="es_cliente_floristeria">True</field>
+            <field name="notas_cliente">Alérgica al polen de tulipanes. Evitar en sus pedidos.</field>
+        </record>
+
+
+
+        <record id="reparto_001" model="abj_floristeria.reparto">
+            <field name="codigo">REP-001</field>
+            <field name="matricula">1234 ABC</field>
+            <field name="fecha_reparto">2025-04-20</field>
+        </record>
+
+        <record id="reparto_002" model="abj_floristeria.reparto">
+            <field name="codigo">REP-002</field>
+            <field name="matricula">5678 XYZ</field>
+            <field name="fecha_reparto">2025-04-21</field>
+        </record>
+
+
+
+        <record id="pedido_001" model="abj_floristeria.pedido">
+            <field name="fecha">2025-04-18</field>
+            <field name="cliente_id" ref="cliente_maria_garcia"/>
+            <field name="ramo_id" ref="ramo_romantico"/>
+            <field name="reparto_id" ref="reparto_001"/>
+        </record>
+
+        <record id="pedido_002" model="abj_floristeria.pedido">
+            <field name="fecha">2025-04-19</field>
+            <field name="cliente_id" ref="cliente_carlos_ruiz"/>
+            <field name="ramo_id" ref="ramo_elegante"/>
+            <field name="reparto_id" ref="reparto_001"/>
+        </record>
+
+        <record id="pedido_003" model="abj_floristeria.pedido">
+            <field name="fecha">2025-04-20</field>
+            <field name="cliente_id" ref="cliente_ana_lopez"/>
+            <field name="ramo_id" ref="ramo_primaveral"/>
+            <field name="reparto_id" ref="reparto_002"/>
+        </record>
+
+        <record id="pedido_004" model="abj_floristeria.pedido">
+            <field name="fecha">2025-04-21</field>
+            <field name="cliente_id" ref="cliente_maria_garcia"/>
+            <field name="ramo_id" ref="ramo_silvestre"/>
+        </record>
+
+    </data>
 </odoo>
